@@ -41,7 +41,7 @@ To use the template, simply run:
 
 The are many Java/Groovy tools and frameworks that allow developers to deploy serverless functions. However, most of them require complicated setup and build configurations. The intent of this plugin is to make it as simple as possible to use Groovy with Serverless.
 
-It only requires 2 files: the `serverless.yml` configuration file and a `handler.js` groovy script that contains your function logic. This makes it as simple as `python` or `node js` based Serverless Framework projects.
+It only requires 2 files: the `serverless.yml` configuration file and a `handler.groovy` script that contains your function logic. This makes it as simple as `python` or `nodejs` based Serverless Framework projects.
 
 Here is a sample `serverless.yml` config file:
 
