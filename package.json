@@ -1,0 +1,29 @@
+{
+  "name": "serverless-groovy",
+  "version": "0.0.1",
+  "description": "Serverless Framework Plugin for Groovy",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bytekast/serverless-groovy-plugin.git"
+  },
+  "keywords": [
+    "serverless",
+    "serverless",
+    "framework",
+    "groovy",
+    "java",
+    "lambda",
+    "aws",
+    "amazon",
+    "web",
+    "services",
+    "faas"
+  ],
+  "author": "Rowell Belen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bytekast/serverless-groovy-plugin/issues"
+  },
+  "homepage": "https://github.com/bytekast/serverless-groovy-plugin#readme"
+}

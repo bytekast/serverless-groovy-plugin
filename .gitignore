@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+
+**/.gradle
+**/.idea
+**/.serverless
+**/.serverless_plugins

@@ -1,0 +1,17 @@
+service: serverless-groovy
+
+provider:
+  name: aws
+
+functions:
+  hello:
+    handler: handler::hello
+  api:
+    handler: handler::api
+    events:
+      - http:
+          path: api
+          method: get
+
+plugins:
+  - serverless-groovy
