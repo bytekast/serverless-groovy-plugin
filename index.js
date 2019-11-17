@@ -10,13 +10,34 @@ class ServerlessPlugin {
     this.servicePath = this.serverless.config.servicePath
     this.serverlessPath = `${this.serverless.config.servicePath}/.serverless`
     this.jarScript = `${__dirname}/scriptjar.groovy`
+    this.testScript = `${__dirname}/runTests.groovy`
     this.functions = (this.serverless.service || {}).functions
     this.functionKeys = Object.keys(this.functions) || []
 
+    this.commands = {
+      groovy: {
+        commands: {
+          test: {
+            lifecycleEvents: ['run']
+          }
+        }
+      }
+    }
+
     this.hooks = {
+      "groovy:test:run": this.test.bind(this),
       "after:package:createDeploymentArtifacts": this.jar.bind(this),
       "before:deploy:function:packageFunction": this.jar.bind(this)
     }
+  }
+
+  test() {
+    spawnSync('groovy', [this.testScript, this.servicePath], {
+      cwd: process.cwd(),
+      env: process.env,
+      stdio: 'inherit',
+      encoding: 'utf-8'
+    })
   }
 
   jar() {
@@ -30,7 +51,7 @@ class ServerlessPlugin {
       const result = spawnSync('groovy', [this.jarScript, handler, deploymentArtifact], {
         cwd: process.cwd(),
         env: process.env,
-        stdio: 'pipe',
+        stdio: 'inherit',
         encoding: 'utf-8'
       })
       if (result.status == 0) {

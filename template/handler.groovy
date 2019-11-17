@@ -18,21 +18,3 @@ def api(APIGatewayV2ProxyRequestEvent event) {
   response.setBody(JsonOutput.prettyPrint(JsonOutput.toJson(event)))
   return response
 }
-
-class HandlerTest extends GroovyTestCase {
-  void 'test hello'() {
-    def handler = new handler()
-    assert handler.hello("Rowell") == "Hello, Rowell"
-  }
-
-  void 'test api'() {
-    def handler = new handler()
-    def event = new APIGatewayV2ProxyRequestEvent()
-    event.body = "Rowell"
-    assert handler.api(event) == [
-      statusCode: 200,
-      body      : JsonOutput.prettyPrint(JsonOutput.toJson(event))
-    ] as APIGatewayV2ProxyResponseEvent
-  }
-}
-junit.textui.TestRunner.run(HandlerTest)
