@@ -7,8 +7,9 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayV2ProxyResponseEve
 import groovy.json.JsonOutput
 import groovy.transform.CompileStatic
 
+@CompileStatic
 def hello(event) {
-  return event instanceof String ? "Hello, $event" : JsonOutput.prettyPrint(JsonOutput.toJson(event))
+  return event instanceof String ? "Hello, $event".toString() : event
 }
 
 @CompileStatic

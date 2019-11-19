@@ -37,6 +37,10 @@ To use the template, simply run:
 ➜ serverless deploy 
 ```
 
+This plugin also has rudimentary unit tests support.
+
+`serverless groovy test` will run the all the classes that extend `GroovyTestCase` in the workspace.
+
 ## 📖 Details
 
 The are many Java/Groovy tools and frameworks that allow developers to deploy serverless functions. However, most of them require complicated setup and build configurations. The intent of this plugin is to make it as simple as possible to use Groovy with Serverless.
